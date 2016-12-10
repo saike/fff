@@ -1,6 +1,6 @@
-.idea/
-node_modules/
-.vagrant/
+.idea
+node_modules
+.vagrant
 
 # apple gitignore
 
@@ -32,3 +32,4 @@ Temporary Items
 .apdisk
 
 #ubuntu gitignore
+
