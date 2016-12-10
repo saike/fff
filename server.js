@@ -9,7 +9,8 @@ import bluebird from 'bluebird';
 import config from './config';
 
 //routes
-import AuthRoute from './routes/auth';
+import AuthRouter from './routes/auth';
+import HomeRouter from './routes/home';
 
 //middleware
 import ErrorHandler from './middlewares/error_handler';
@@ -40,7 +41,8 @@ app.use(session({
   secret: config.secret
 }));
 
-app.use('/api', AuthRoute);
+app.use('/api', AuthRouter);
+app.use('/', HomeRouter);
 
 app.use(ErrorHandler);
 
