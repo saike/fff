@@ -6,6 +6,14 @@ you need NodeJS and MongoDB installed first
 
 `$ sudo npm i -g nodemon`
 
+`$ sudo npm i -g pm2`
+
 `$ npm i`
 
-`$ npm start`
+For developing, use this command to start:
+
+`$ npm run dev`
+
+For production, use this command:
+
+`$ npm run prod`

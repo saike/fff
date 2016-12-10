@@ -4,7 +4,8 @@
   "description": "Flats for friends",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L --exec babel-node server.js"
+    "dev": "nodemon -L --exec babel-node server.js",
+    "prod": "pm2 start server.js -x babel-node"
   },
   "keywords": [],
   "author": "saike <kishkoglot@gmail.com>",
