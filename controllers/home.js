@@ -1,8 +1,12 @@
 export const index = async (req, res, next) => {
 
-  res.json({
-    title: 'Welcome to Friends For Friends',
-    message: 'It is testing version'
-  });
+  console.log(req.query);
+
+  let context = {
+    items: [ 'item1', 'item2', 'item3' ],
+    name: req.query.name || 'No name'
+  };
+
+  res.render('home', { locals: context } );
 
 };
