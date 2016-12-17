@@ -1,10 +1,9 @@
 export const index = async (req, res, next) => {
 
-  console.log(req.query);
+  console.log('Current user: ', req.user);
 
   let context = {
-    items: [ 'item1', 'item2', 'item3' ],
-    name: req.query.name || 'No name'
+    user: req.user
   };
 
   res.render('home', { locals: context } );

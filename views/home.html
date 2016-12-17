@@ -3,22 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Flats For Friends</title>
+
 </head>
 <body>
 
   <div>
-    <h1>
-      Hello ${name}!
-    </h1>
+    ${ user &&
+      `
+        <p>You are logged in as:</p>
+
+        <h1>
+          <img src="${ user.facebook.picture }" alt=""> <br>
+          <span>${ user.facebook.name }!</span>
+        </h1>
+
+        <p>
+          <a href="/auth/logout">Logout</a>
+        </p>
+       ` || ''
+    }
   </div>
 
-  <div>
-    <ol>
-      ${ items.map( item => `
-        <li> ${ item } </li>
-      `).join('') }
-    </ol>
-  </div>
+  ${ !user &&
+
+    `
+      <div>
+        <a href="/auth/facebook">
+          Login with Facebook
+        </a>
+      </div>
+    ` || ''
+
+  }
+
+
 
 
 </body>

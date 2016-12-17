@@ -1,4 +1,21 @@
 import User from '../models/user';
+import passport from '../config/facebook';
+
+export const facebook_login = passport.authenticate('facebook', { scope: [ 'public_profile', 'email' ] });
+
+export const facebook_redirect = passport.authenticate('facebook', { failureRedirect: '/' });
+
+export const facebook_callback = (req, res) => {
+  console.log('redirect facebook login');
+  res.redirect('/');
+};
+
+export const logout = (req, res) => {
+  req.logout();
+  res.clearCookie('connect.sid');
+  res.redirect('/');
+};
+
 
 export const signup = async (req, res, next) => {
 
@@ -49,4 +66,3 @@ export const signin = async (req, res, next) => {
   res.json(user);
 
 };
-
