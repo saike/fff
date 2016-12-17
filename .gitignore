@@ -1,3 +1,6 @@
+# local configs
+config/local.json
+
 .idea
 node_modules
 .vagrant

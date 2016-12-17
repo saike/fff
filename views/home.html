@@ -4,6 +4,24 @@
   <meta charset="UTF-8">
   <title>Flats For Friends</title>
 
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    td {
+      padding: 10px 20px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2
+    }
+  </style>
+
 </head>
 <body>
 
@@ -36,7 +54,34 @@
 
   }
 
+  <div>
+    <h4>All registered users:</h4>
+    <table>
+      ${
 
+        all_users.map((u, index)=> {
+
+          return `
+            <tr>
+              <td>
+                <span>
+                  ${ index+1 }
+                </span>
+              </td>
+              <td>
+                <img src="${ u.facebook.picture }" width="40" alt="">
+              </td>
+              <td>
+                <span>${ u.facebook.name }!</span>
+              </td>
+            </tr>
+          `
+
+        }).join('')
+
+      }
+    </table>
+  </div>
 
 
 </body>
