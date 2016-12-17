@@ -1,5 +1,7 @@
+var CONFIG = require('./local.json');
+
 module.exports = {
-  host: 'localhost',
-  db: 'fff',
+  host: CONFIG.MONGODB.HOST,
+  db: CONFIG.MONGODB.DATABASE_NAME,
   directory: './migrations'
 };

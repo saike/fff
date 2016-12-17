@@ -11,7 +11,7 @@ passport.use(new FacebookStrategy({
     clientID: CONFIG.FACEBOOK.APP_ID,
     clientSecret: CONFIG.FACEBOOK.APP_SECRET,
     callbackURL: `${ CONFIG.PROTOCOL }://${ CONFIG.DOMAIN }:${ CONFIG.PORT }${CONFIG.FACEBOOK.CALLBACK_URL}`,
-    profileFields: ['id', 'displayName', 'name', 'gender', 'picture.type(large)']
+    profileFields: ['id', 'email', 'displayName', 'name', 'gender', 'picture.type(large)']
   },
   async function(token, refreshToken, profile, cb) {
 
