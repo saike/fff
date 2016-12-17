@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -L --exec babel-node server.js",
-    "prod": "pm2 start --interpreter babel-node server.js"
+    "prod": "pm2 start --interpreter babel-node server.js",
+    "restart": "pm2 restart --interpreter babel-node server"
   },
   "keywords": [],
   "author": "saike <kishkoglot@gmail.com>",
