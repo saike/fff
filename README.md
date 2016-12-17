@@ -17,3 +17,7 @@ For developing, use this command to start:
 For production, use this command:
 
 `$ npm run prod`
+
+Run DB migrations:
+
+`$ npm run migrate`
