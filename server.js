@@ -12,7 +12,6 @@ import Render from 'express-es6-template-engine';
 
 //config
 import config from './config';
-import db_config from './config/mongodb';
 
 //routes
 import AuthRouter from './routes/auth';
@@ -26,7 +25,7 @@ const app = express();
 
 //connect to mongodb
 mongoose.Promise = bluebird;
-mongoose.connect([ db_config.host, db_config.db ].join('/'), (err) => {
+mongoose.connect([ config.MONGODB.HOST, config.MONGODB.DATABASE_NAME ].join('/'), (err) => {
 
   if(err) throw err;
 
@@ -51,7 +50,7 @@ app.use(cookie_parser()); // read cookies (needed for auth)
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: config.secret
+  secret: config.SECRET
 }));
 
 app.use(passport.initialize());
@@ -64,8 +63,8 @@ app.use('/', HomeRouter);
 app.use(ErrorHandler);
 
 //start app
-app.listen(config.port, (err) => {
+app.listen(config.PORT, (err) => {
   if(err) throw err;
-  console.log(`Server listening on port: ${config.port}`);
+  console.log(`Server listening on port: ${config.PORT}`);
 });
 

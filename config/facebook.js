@@ -1,14 +1,16 @@
 import passport from 'passport';
 import PassportFacebook from 'passport-facebook';
-import config from './index';
+import CONFIG from './index';
 import User from '../models/user';
 
 const FacebookStrategy = PassportFacebook.Strategy;
 
+console.log(CONFIG);
+
 passport.use(new FacebookStrategy({
-    clientID: config.oauth.facebook.app_id,
-    clientSecret: config.oauth.facebook.app_secret,
-    callbackURL: config.oauth.facebook.callback_url,
+    clientID: CONFIG.FACEBOOK.APP_ID,
+    clientSecret: CONFIG.FACEBOOK.APP_SECRET,
+    callbackURL: `${ CONFIG.PROTOCOL }://${ CONFIG.DOMAIN }:${ CONFIG.PORT }${CONFIG.FACEBOOK.CALLBACK_URL}`,
     profileFields: ['id', 'displayName', 'name', 'gender', 'picture.type(large)']
   },
   async function(token, refreshToken, profile, cb) {
